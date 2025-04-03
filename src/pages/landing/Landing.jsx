@@ -1,6 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import { Bloom, EffectComposer } from "@react-three/postprocessing";
 import { Suspense } from "react";
+import { LoadingScreen } from "./LoadingScreen.jsx";
 import { Experience } from "../../components/three/Experience";
 import { UI } from "../../components/three/UI";
 
@@ -14,7 +15,7 @@ const Landing = () => {
       >
         <color attach="background" args={["#171720"]} />
         <fog attach="fog" args={["#171720", 10, 30]} />
-        <Suspense>
+        <Suspense fallback={<LoadingScreen />}>
           <Experience />
         </Suspense>
         <EffectComposer>

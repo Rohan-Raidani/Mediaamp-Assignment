@@ -28,11 +28,32 @@ export const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const dropdownRef = useRef(null);
+  const searchTimeoutRef = useRef(null);
 
+  // Handle search input change with debounce
+  const handleSearchChange = (e) => {
+    const value = e.target.value;
+    setSearchQuery(value);
+
+    // Clear previous timeout
+    if (searchTimeoutRef.current) {
+      clearTimeout(searchTimeoutRef.current);
+    }
+
+    // Set a new timeout to delay the API call
+    searchTimeoutRef.current = setTimeout(() => {
+      if (value.trim()) {
+        dispatch(fetchGames({ search: value }));
+      }
+    }, 2000);
+  };
+
+  // Form submission is still possible but optional
   const handleSearch = (e) => {
     e.preventDefault();
-    dispatch(fetchGames({ search: searchQuery }));
-    setSearchQuery("");
+    if (searchQuery.trim()) {
+      dispatch(fetchGames({ search: searchQuery }));
+    }
   };
 
   const handleLogout = async () => {
@@ -52,6 +73,10 @@ export const Navbar = () => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      // Clean up any pending timeouts
+      if (searchTimeoutRef.current) {
+        clearTimeout(searchTimeoutRef.current);
+      }
     };
   }, []);
 
@@ -85,7 +110,7 @@ export const Navbar = () => {
               type="text"
               placeholder="Search games..."
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={handleSearchChange} // Changed to new handler
               className="search-input"
             />
             <button type="submit" className="search-button">
