@@ -1,0 +1,231 @@
+/* style.css */
+.developer-container {
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  background-color: #111827;
+  color: #fff;
+}
+
+.hero-section {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.content-wrapper {
+  display: flex;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+.left-content {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+
+.left-content h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #fff;
+  font-weight: 700;
+  position: relative;
+}
+
+.left-content h1:after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: #fb923c;
+  border-radius: 2px;
+}
+
+.left-content p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.right-content {
+  flex: 1.2;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.model-container {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.interaction-hint {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  margin: 0 auto;
+  width: fit-content;
+  font-size: 0.85rem;
+  color: #ccc;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.interaction-hint:hover {
+  opacity: 1;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 1.5rem;
+}
+
+.nav-btn {
+  padding: 12px 24px;
+  background-color: #fb923c;
+  color: white;
+  font-weight: 900;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: background-color 0.5s;
+  border: none;
+  pointer-events: auto;
+}
+
+.nav-btn:hover {
+  background-color: #f97316;
+}
+
+.nav-btn:focus {
+  outline: none;
+}
+
+/* For the Rive canvas element to take up the entire container */
+.model-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+/* UI Section Styles */
+.ui {
+  position: fixed;
+  inset: 0;
+  pointer-events: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.ui section {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  width: 65%;
+  height: 100%;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.ui section.hidden {
+  opacity: 0;
+}
+
+.ui section h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.ui section p {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .content-wrapper {
+    flex-direction: column;
+  }
+
+  .left-content,
+  .right-content {
+    width: 95%;
+  }
+
+  .right-content {
+    height: 50vh;
+    margin-top: 1rem;
+  }
+
+  .button-group {
+    justify-content: flex-start;
+  }
+
+  .ui section {
+    width: 85%;
+  }
+}
+
+@media (max-width: 768px) {
+  .button-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .ui section {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .left-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .left-content p {
+    font-size: 1rem;
+  }
+
+  .hero-section {
+    height: auto;
+    padding: 4rem 0;
+  }
+
+  .ui section h1 {
+    font-size: 1.6rem;
+  }
+
+  .ui section p {
+    font-size: 1rem;
+  }
+}
