@@ -60,3 +60,11 @@
 .nav-btn:focus {
   outline: none;
 }
+.ui .ref {
+  /* width: 400px; */
+  font-size: 10px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: #00040e;
+}

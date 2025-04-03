@@ -16,6 +16,9 @@ export const UI = () => {
             Dev's Profile
           </button>
         </div>
+        <p className="ref">
+          Robo Fun Time - Livestream by Vladimir Ilic [CC-BY] via Poly Pizza
+        </p>
       </section>
     </div>
   );

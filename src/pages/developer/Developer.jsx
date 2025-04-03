@@ -45,18 +45,16 @@ export const Developer = () => {
           <div className="left-content">
             <h1>Developer Profile</h1>
             <p>
-              Hello! I'm a passionate software developer with expertise in
-              modern web technologies. My journey in coding began with a
-              curiosity about how digital experiences are created, and has
-              evolved into a professional career building robust applications. I
-              specialize in React, JavaScript, and responsive UI design, always
-              striving to create intuitive and impactful user experiences.
+              I am an aspiring Full Stack Developer with a solid foundation in
+              web and app development. I am actively building my knowledge in
+              Data Structures and Algorithms (DSA), exploring 3D web development
+              with Three.js, and developing various projects. My goal is to
+              leverage my technical skills to create innovative solutions and
+              enhance user experiences.
             </p>
             <p>
-              When I'm not coding, you can find me exploring new technologies,
-              contributing to open-source projects, or sharing knowledge with
-              the developer community. I believe in continuous learning and
-              pushing the boundaries of what's possible with code.
+              My goal is to leverage my technical skills to create innovative
+              solutions and enhance user experiences.
             </p>
           </div>
           <div className="right-content">
