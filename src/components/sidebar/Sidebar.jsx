@@ -12,7 +12,7 @@ import {
   Clock,
   Filter,
 } from "lucide-react";
-import "./sidebar.css";
+import "./Sidebar.css";
 
 export const Sidebar = () => {
   const dispatch = useDispatch();
