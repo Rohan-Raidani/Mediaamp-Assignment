@@ -20,10 +20,10 @@ import "./style.css";
 
 export const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [showDropdown, setShowDropdown] = useState(false);
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const dispatch = useDispatch();
-  const { isSignedIn, user } = useUser();
+  const { isSignedIn } = useUser();
   const { signOut } = useClerk();
   const navigate = useNavigate();
   const location = useLocation();
@@ -60,19 +60,18 @@ export const Navbar = () => {
     await signOut();
     dispatch(clearFavorites());
     navigate("/");
-    setShowDropdown(false);
   };
 
-  const handleClickOutside = (event) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-      setShowDropdown(false);
-    }
-  };
+  // const handleClickOutside = (event) => {
+  //   if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+  //     setShowDropdown(false);
+  //   }
+  // };
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
+    // document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      // document.removeEventListener("mousedown", handleClickOutside);
       // Clean up any pending timeouts
       if (searchTimeoutRef.current) {
         clearTimeout(searchTimeoutRef.current);
@@ -134,77 +133,30 @@ export const Navbar = () => {
                   <Home size={16} />
                   <span className="nav-text">Home</span>
                 </Link>
+
                 <Link
                   to="/library"
                   className={`nav-btn nav-link ${
                     isActive("/library") ? "active" : ""
                   }`}
                 >
-                  <Library size={16} />
-                  <span className="nav-text">Library</span>
-                </Link>
-                <Link
-                  to="/favorites"
-                  className={`nav-btn nav-link ${
-                    isActive("/favorites") ? "active" : ""
-                  }`}
-                >
                   <Heart size={16} />
-                  <span className="nav-text">Favorites</span>
+                  <span className="nav-text">Favorites/Bookmarks</span>
                 </Link>
                 <button
-                  className="user-dropdown-btn"
-                  onClick={() => setShowDropdown(!showDropdown)}
+                  onClick={handleLogout}
+                  // className="dropdown-item dropdown-item-danger"
+                  className="nav-btn nav-link"
                 >
-                  <img
-                    src={user.profileImageUrl}
-                    alt="Profile"
-                    className="w-8 h-8 rounded-full"
-                  />
-                  <ChevronDown className="w-4 h-4" />
+                  <LogOut size={16} />
+                  Sign Out
                 </button>
               </div>
-              {showDropdown && (
-                <div className="absolute">
-                  <div className="dropdown-user-info">
-                    <img
-                      src={user.profileImageUrl}
-                      alt="Profile"
-                      className="dropdown-user-img"
-                    />
-                    <div className="dropdown-user-details">
-                      <p className="dropdown-user-name">
-                        {user.fullName || "User"}
-                      </p>
-                      <p className="dropdown-user-email">
-                        {user.primaryEmailAddress?.emailAddress}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="dropdown-divider"></div>
-                  <Link to="/profile" className="dropdown-item">
-                    <User size={16} />
-                    Profile
-                  </Link>
-                  <Link to="/settings" className="dropdown-item">
-                    <Settings size={16} />
-                    Settings
-                  </Link>
-                  <div className="dropdown-divider"></div>
-                  <button
-                    onClick={handleLogout}
-                    className="dropdown-item dropdown-item-danger"
-                  >
-                    <LogOut size={16} />
-                    Sign Out
-                  </button>
-                </div>
-              )}
             </div>
           ) : (
             <div className="auth-buttons">
               <Link to="/sign-in" className="nav-btn">
-                Sign In
+                Log In
               </Link>
               <Link to="/sign-up" className="nav-btn nav-btn-primary">
                 Sign Up
