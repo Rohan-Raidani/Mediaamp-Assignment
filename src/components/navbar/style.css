@@ -1,4 +1,4 @@
-/* Enhanced Navbar.css */
+/* Navbar.css */
 .navbar {
   background-color: #111827;
   color: white;
@@ -170,7 +170,6 @@
   position: relative;
 }
 
-/* User dropdown styling */
 .user-dropdown-btn {
   display: flex;
   align-items: center;
@@ -300,7 +299,6 @@
   background-color: rgba(239, 68, 68, 0.1);
 } */
 
-/* Mobile menu toggle */
 .mobile-menu-toggle {
   display: none;
   background: none;

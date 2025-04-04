@@ -18,7 +18,6 @@ export const Home = () => {
   const [selectedGame, setSelectedGame] = useState(null);
   const [sidebarVisible, setSidebarVisible] = useState(true);
 
-  // Check if we're on mobile view
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
@@ -39,31 +38,15 @@ export const Home = () => {
 
   const handlePageChange = (newPage) => {
     dispatch(fetchGames({ page: newPage }));
-    // Scroll back to top when changing pages
+
     document.querySelector(".main-content").scrollTo({
       top: 0,
       behavior: "smooth",
     });
   };
 
-  // const toggleSidebar = () => {
-  //   setSidebarVisible(!sidebarVisible);
-  // };
-
   return (
     <div className="home-container">
-      {/* Mobile sidebar toggle button */}
-      {/* {isMobile && (
-        <button
-          className="sidebar-toggle"
-          onClick={toggleSidebar}
-          aria-label={sidebarVisible ? "Close sidebar" : "Open sidebar"}
-        >
-          {sidebarVisible ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      )} */}
-
-      {/* Conditional rendering for sidebar based on visibility state */}
       <div
         className={`sidebar-container ${
           sidebarVisible ? "sidebar-visible" : "sidebar-hidden"

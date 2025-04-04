@@ -80,7 +80,7 @@ export const GameCard = ({ game, onSelect }) => {
   );
 };
 
-// Helper function to return platform icons
+
 function getPlatformIcon(platformName) {
   const name = platformName.toLowerCase();
   if (name.includes("playstation")) return "PS";

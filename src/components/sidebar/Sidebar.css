@@ -1,4 +1,4 @@
-/* Enhanced Sidebar.css */
+/* Sidebar.css */
 .sidebar {
   width: 16rem;
   background-color: #111827;
@@ -80,7 +80,6 @@
   border-top: 1px solid #374151;
 }
 
-/* Checkbox styling */
 .checkbox-group {
   display: flex;
   flex-direction: column;
@@ -148,7 +147,6 @@
   transform: rotate(45deg);
 }
 
-/* Radio styling */
 .radio-group {
   display: flex;
   flex-direction: column;
@@ -215,7 +213,6 @@
   background: white;
 }
 
-/* Clear filters button */
 .clear-filters-btn {
   width: 100%;
   display: flex;
@@ -238,7 +235,6 @@
   border-color: #f97316;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .sidebar {
     width: 90%;

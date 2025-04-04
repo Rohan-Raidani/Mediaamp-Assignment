@@ -156,7 +156,6 @@
   filter: drop-shadow(0 0 3px rgba(249, 115, 22, 0.5));
 }
 
-/* Make responsive for different screen sizes */
 @media (max-width: 640px) {
   .game-card-title {
     font-size: 1rem;

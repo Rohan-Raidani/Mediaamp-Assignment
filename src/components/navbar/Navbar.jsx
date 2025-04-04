@@ -35,12 +35,10 @@ export const Navbar = () => {
     const value = e.target.value;
     setSearchQuery(value);
 
-    // Clear previous timeout
     if (searchTimeoutRef.current) {
       clearTimeout(searchTimeoutRef.current);
     }
 
-    // Set a new timeout to delay the API call
     searchTimeoutRef.current = setTimeout(() => {
       if (value.trim()) {
         dispatch(fetchGames({ search: value }));
@@ -48,7 +46,6 @@ export const Navbar = () => {
     }, 2000);
   };
 
-  // Form submission is still possible but optional
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
@@ -62,17 +59,11 @@ export const Navbar = () => {
     navigate("/");
   };
 
-  // const handleClickOutside = (event) => {
-  //   if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-  //     setShowDropdown(false);
-  //   }
-  // };
-
   useEffect(() => {
     // document.addEventListener("mousedown", handleClickOutside);
     return () => {
       // document.removeEventListener("mousedown", handleClickOutside);
-      // Clean up any pending timeouts
+
       if (searchTimeoutRef.current) {
         clearTimeout(searchTimeoutRef.current);
       }
@@ -109,7 +100,7 @@ export const Navbar = () => {
               type="text"
               placeholder="Search games..."
               value={searchQuery}
-              onChange={handleSearchChange} // Changed to new handler
+              onChange={handleSearchChange}
               className="search-input"
             />
             <button type="submit" className="search-button">

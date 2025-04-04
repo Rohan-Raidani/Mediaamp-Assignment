@@ -17,12 +17,10 @@ import "./Sidebar.css";
 export const Sidebar = () => {
   const dispatch = useDispatch();
   const filters = useSelector((state) => state.filters);
-  // Changed to a single string state to track which section is currently expanded
+
   const [expandedSection, setExpandedSection] = useState("platforms");
 
   const toggleSection = (section) => {
-    // If the clicked section is already expanded, close it
-    // Otherwise, expand the clicked section (and implicitly close others)
     setExpandedSection(expandedSection === section ? "" : section);
   };
 
@@ -148,55 +146,6 @@ export const Sidebar = () => {
             </div>
           )}
         </div>
-
-        {/* <div className="sidebar-section">
-          <button
-            className="sidebar-section-header"
-            onClick={() => toggleSection("genres")}
-          >
-            <div className="sidebar-section-title-wrapper">
-              <Tag size={18} />
-              <h3 className="sidebar-section-title">Genres</h3>
-            </div>
-            <ChevronDown
-              className={`sidebar-section-icon ${
-                expandedSection === "genres" ? "rotate" : ""
-              }`}
-            />
-          </button>
-
-          {expandedSection === "genres" && (
-            <div className="sidebar-section-content">
-              <div className="checkbox-group">
-                <label className="checkbox-label">
-                  <input type="checkbox" className="checkbox-input" />
-                  <span className="checkbox-custom"></span>
-                  Action
-                </label>
-                <label className="checkbox-label">
-                  <input type="checkbox" className="checkbox-input" />
-                  <span className="checkbox-custom"></span>
-                  Adventure
-                </label>
-                <label className="checkbox-label">
-                  <input type="checkbox" className="checkbox-input" />
-                  <span className="checkbox-custom"></span>
-                  RPG
-                </label>
-                <label className="checkbox-label">
-                  <input type="checkbox" className="checkbox-input" />
-                  <span className="checkbox-custom"></span>
-                  Strategy
-                </label>
-                <label className="checkbox-label">
-                  <input type="checkbox" className="checkbox-input" />
-                  <span className="checkbox-custom"></span>
-                  Shooter
-                </label>
-              </div>
-            </div>
-          )}
-        </div> */}
 
         <div className="sidebar-section">
           <button

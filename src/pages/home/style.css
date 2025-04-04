@@ -1,5 +1,5 @@
 /* Home.css */
-/* Update the home container */
+
 .home-container {
   display: flex;
   min-height: 100vh;
@@ -7,17 +7,16 @@
   position: relative;
 }
 
-/* Fix the main content scrolling */
 .main-content {
   flex: 1;
   padding: 1.5rem;
-  height: auto; /* Remove fixed height */
-  min-height: 300px; /* Ensure minimum height for content */
+  height: auto;
+  min-height: 300px; 
   overflow-y: auto;
   scrollbar-width: thin;
   position: relative;
 }
-/* Custom scrollbar */
+
 .main-content::-webkit-scrollbar {
   width: 6px;
 }
@@ -138,12 +137,12 @@
   }
 }
 
-/* Responsive design - sidebar becomes collapsible on mobile */
+
 @media (max-width: 768px) {
   .home-container {
     flex-direction: column;
     height: auto;
-    overflow-y: visible; /* Allow content to flow */
+    overflow-y: visible; 
   }
 
   .games-grid {
@@ -153,20 +152,20 @@
   .pagination {
     flex-wrap: wrap;
   }
-  /* Remove height restriction on mobile */
+
   .main-content {
     height: auto;
     min-height: 0;
-    padding-bottom: 4rem; /* Add some padding at the bottom */
+    padding-bottom: 4rem; 
   }
 
-  /* Fix loader position in mobile view */
+ 
   .loader-container {
-    height: 200px; /* Fixed height instead of calc on mobile */
+    height: 200px; 
   }
 }
 
-/* Smaller screens */
+
 @media (max-width: 480px) {
   .games-grid {
     grid-template-columns: 1fr;
